@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessPro - Modern Business Management Solution</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #6366f1;
+            --accent: #818cf8;
+            --dark: #1e1b4b;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            position: relative;
+            min-height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(79, 70, 229, 0.95);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            filter: blur(16px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .pricing-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2rem;
+            background: white;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .floating-image {
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 4rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            position: absolute;
+            top: -32px;
+            left: 2rem;
+            border: 4px solid white;
+            background: var(--primary);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="#">
+                BusinessPro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-light rounded-pill px-4" href="#signup">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="badge bg-white text-primary mb-3">New Features Available</span>
+                    <h1 class="display-3 fw-bold mb-4">Transform Your Business Operations</h1>
+                    <p class="lead mb-5 opacity-75">Streamline your workflow with our all-in-one business management platform. CRM, HR, Finance, and more in a single solution.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#signup" class="btn btn-light btn-lg rounded-pill">Start Free Trial</a>
+                        <a href="#demo" class="btn btn-outline-light btn-lg rounded-pill">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="me-2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M10 8l6 4-6 4V8z"/>
+                            </svg>
+                            Watch Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="home.png" alt="Dashboard Preview" class="img-fluid floating-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">10k+</div>
+                        <div class="text-muted">Active Users</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="text-muted">Customer Satisfaction</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="text-muted">Integrations</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="text-muted">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Everything You Need</h2>
+                <p class="lead text-muted">Powerful features to help you manage every aspect of your business</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="fw-bold mb-3">CRM Suite</h3>
+                        <p class="text-muted mb-0">Powerful customer relationship management tools to boost engagement and drive growth.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="fw-bold mb-3">Time Tracking</h3>
+                        <p class="text-muted mb-0">Advanced time tracking and project management tools for maximum productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Simple, Transparent Pricing</h2>
+                <p class="lead text-muted">Choose the perfect plan for your business needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="pricing-card h-100">
+                        <h3 class="fw-bold mb-3">Starter</h3>
+                        <div class="display-4 fw-bold mb-3">$29<span class="fs-5 fw-normal">/mo</span></div>
+                        <p class="text-muted mb-4">Perfect for small businesses and startups</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">✓ Up to 5 team members</li>
+                            <li class="mb-2">✓ Basic CRM features</li>
+                            <li class="mb-2">✓ 5GB storage</li>
+                            <li class="mb-2">✓ Email support</li>
+                        </ul>
+                        <a href="#signup" class="btn btn-outline-primary rounded-pill w-100">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card featured h-100">
+                        <h3 class="fw-bold mb-3">Professional</h3>
+                        <div class="display-4 fw-bold mb-3">$99<span class="fs-5 fw-normal">/mo</span></div>
+                        <p class="opacity-75 mb-4">Best for growing companies</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">✓ Up to 20 team members</li>
+                            <li class="mb-2">✓ Advanced CRM features</li>
+                            <li class="mb-2">✓ 50GB storage</li>
+                            <li class="mb-2">✓ Priority support</li>
+                        </ul>
+                        <a href="#signup" class="btn btn-light rounded-pill w-100">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card h-100">
+                        <h3 class="fw-bold mb-3">Enterprise</h3>
+                        <div class="display-4 fw-bold mb-3">$299<span class="fs-5 fw-normal">/mo</span></div>
+                        <p class="text-muted mb-4">For large organizations</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">✓ Unlimited team members</li>
+                            <li class="mb-2">✓ Custom solutions</li>
+                            <li class="mb-2">✓ Unlimited storage</li>
+                            <li class="mb-2">✓ 24/7 dedicated support</li>
+                        </ul>
+                        <a href="#signup" class="btn btn-outline-primary rounded-pill w-100">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">What Our Customers Say</h2>
+                <p class="lead text-muted">Join thousands of satisfied businesses worldwide</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="/api/placeholder/64/64" alt="User Avatar" class="img-fluid rounded-circle">
+                        </div>
+                        <p class="text-muted mb-3">"BusinessPro has transformed how we manage our operations. The interface is intuitive and the support team is exceptional."</p>
+                        <h5 class="fw-bold mb-1">Sarah Johnson</h5>
+                        <p class="text-muted small">CEO, TechStart Inc</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="/api/placeholder/64/64" alt="User Avatar" class="img-fluid rounded-circle">
+                        </div>
+                        <p class="text-muted mb-3">"The CRM features have helped us increase customer engagement by 150%. Highly recommended for growing businesses."</p>
+                        <h5 class="fw-bold mb-1">Michael Chen</h5>
+                        <p class="text-muted small">Marketing Director, GrowthLabs</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="/api/placeholder/64/64" alt="User Avatar" class="img-fluid rounded-circle">
+                        </div>
+                        <p class="text-muted mb-3">"The time tracking features have improved our team's productivity significantly. It's been a game-changer for us."</p>
+                        <h5 class="fw-bold mb-1">Emily Rodriguez</h5>
+                        <p class="text-muted small">Project Manager, BuildCo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-4">Ready to Get Started?</h2>
+            <p class="lead opacity-75 mb-5">Join thousands of businesses already using BusinessPro to grow their operations</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#signup" class="btn btn-light btn-lg rounded-pill">Start Free Trial</a>
+                <a href="#demo" class="btn btn-outline-light btn-lg rounded-pill">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">BusinessPro</h5>
+                    <p class="opacity-75">Modern business management solution for companies of all sizes.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#features" class="footer-link">Features</a></li>
+                        <li class="mb-2"><a href="#pricing" class="footer-link">Pricing</a></li>
+                        <li class="mb-2"><a href="#demo" class="footer-link">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="footer-link">About</a></li>
+                        <li class="mb-2"><a href="#careers" class="footer-link">Careers</a></li>
+                        <li class="mb-2"><a href="#blog" class="footer-link">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#help" class="footer-link">Help Center</a></li>
+                        <li class="mb-2"><a href="#contact" class="footer-link">Contact</a></li>
+                        <li class="mb-2"><a href="#status" class="footer-link">Status</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#privacy" class="footer-link">Privacy</a></li>
+                        <li class="mb-2"><a href="#terms" class="footer-link">Terms</a></li>
+                        <li class="mb-2"><a href="#security" class="footer-link">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-5 opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="opacity-75 mb-md-0">© 2025 BusinessPro. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="#twitter" class="footer-link">Twitter</a>
+                        <a href="#linkedin" class="footer-link">LinkedIn</a>
+                        <a href="#facebook" class="footer-link">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
