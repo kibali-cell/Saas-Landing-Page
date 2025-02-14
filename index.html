@@ -6,203 +6,7 @@
     <title>BusinessPro - Modern Business Management Solution</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --secondary: #6366f1;
-            --accent: #818cf8;
-            --dark: #1e1b4b;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--dark), var(--primary));
-            position: relative;
-            min-height: 100vh;
-            color: white;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 1.5rem 0;
-        }
-
-        .navbar.scrolled {
-            background: rgba(79, 70, 229, 0.95);
-            padding: 1rem 0;
-            backdrop-filter: blur(10px);
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .feature-icon::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            border-radius: inherit;
-            filter: blur(16px);
-            opacity: 0.3;
-            z-index: -1;
-        }
-        
-        .pricing-card {
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 2rem;
-            background: white;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .pricing-card.featured {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-        
-        .floating-image {
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            color: white;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .stats-section {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            padding: 4rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 3rem;
-            position: relative;
-        }
-
-        .testimonial-avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            position: absolute;
-            top: -32px;
-            left: 2rem;
-            border: 4px solid white;
-            background: var(--primary);
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            position: relative;
-            overflow: hidden;
-            padding: 6rem 0;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0;
-        }
-
-        .footer-link {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -220,7 +24,7 @@
                     <li class="nav-item"><a class="nav-link text-white" href="#pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a class="btn btn-light rounded-pill px-4" href="#signup">Get Started</a>
+                        <a class="btn btn-light rounded-pill px-4" href="https://github.com/kibali-cell/business.git">Get Started</a>
                     </li>
                 </ul>
             </div>
@@ -237,7 +41,7 @@
                     <p class="lead mb-5 opacity-75">Streamline your workflow with our all-in-one business management platform. CRM, HR, Finance, and more in a single solution.</p>
                     <div class="d-flex gap-3">
                         <a href="#signup" class="btn btn-light btn-lg rounded-pill">Start Free Trial</a>
-                        <a href="#demo" class="btn btn-outline-light btn-lg rounded-pill">
+                        <a href="https://github.com/kibali-cell/business.git" class="btn btn-outline-light btn-lg rounded-pill">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="me-2" viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M10 8l6 4-6 4V8z"/>
@@ -487,20 +291,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+    <script src="script.js"></script>
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').classList.add('scrolled');
-            } else {
-                document.querySelector('.navbar').classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
