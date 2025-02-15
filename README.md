@@ -4,6 +4,8 @@
 
 **Live Demo:** [View BusinessPro Live](https://github.com/kibali-cell)
 
+It was Primarily designed for A [Business Management System](https://github.com/kibali-cell/business)  am working on. 
+
 ---
 
 ## Overview
@@ -42,7 +44,7 @@ To run the project locally, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/kibali-cell/business.git
+   git clone https://github.com/kibali-cell/Saas-Landing-Page.git
    
 ## Open the Website: 
 Open index.html in your web browser to view the site locally.
@@ -57,9 +59,6 @@ Google Fonts (Poppins)
 
 ## Contributing
 Contributions are welcome! If you have suggestions, improvements, or bug fixes, please open an issue or submit a pull request.
-
-## License
-[Insert your license information here.]
 
 ## Contact
 Developed by Jonas Kiwia.
