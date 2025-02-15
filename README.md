@@ -1,8 +1,8 @@
 # BusinessPro - Modern Business Management Solution
 
-[![BusinessPro Screenshot](images/screenshot.png)](https://your-live-demo-url.com)
+[![BusinessPro Screenshot](images/screenshot.png)](https://github.com/kibali-cell)
 
-**Live Demo:** [View BusinessPro Live](https://your-live-demo-url.com)
+**Live Demo:** [View BusinessPro Live](https://github.com/kibali-cell)
 
 ---
 
@@ -25,14 +25,14 @@ BusinessPro is a modern business management solution designed to streamline your
 
 Here are some screenshots from BusinessPro:
 
-### Home Page
-![Home Page](images/homepage.png)
-
 ### Features Section
 ![Features Section](images/features.png)
 
 ### Pricing Section
 ![Pricing Section](images/pricing.png)
+
+### Footer Section
+![Home Section](images/footer.png)
 
 ---
 
